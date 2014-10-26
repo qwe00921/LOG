@@ -20,7 +20,7 @@ output:
 
 ##Usage
 
-Download and put LOG.java to your application
+Download and put LOG.java to your Android project
 
     LOG log = new LOG();
     log.i("your message or your array or your list here");
