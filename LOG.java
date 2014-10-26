@@ -43,7 +43,6 @@ public class LOG {
         if(!fullname){
             int index = classname.lastIndexOf(".") + 1;
             classname = classname.substring(index);
-
         }
         return classname + ":"+ caller.getLineNumber();
     }
