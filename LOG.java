@@ -11,7 +11,7 @@ import java.util.List;
 public class LOG {
     public static final boolean DEBUG = true;
 
-    private boolean debug;
+    private boolean debug = DEBUG;
     private boolean fullname;
 
 
@@ -39,12 +39,13 @@ public class LOG {
     private String getStacktrace(){
         StackTraceElement[] es = Thread.currentThread().getStackTrace();
         StackTraceElement caller = es[4];
-        String classname = caller.getClassName();
+        String filename = caller.getFileName();
         if(!fullname){
-            int index = classname.lastIndexOf(".") + 1;
-            classname = classname.substring(index);
+            int index = filename.lastIndexOf("/") + 1;
+            filename = filename.substring(index).replace(".java", "");
+
         }
-        return classname + ":"+ caller.getLineNumber();
+        return filename + ":"+ caller.getLineNumber();
     }
 
     public void here(){
