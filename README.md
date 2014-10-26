@@ -9,6 +9,10 @@ Nothing new, but you can save your time finding where the logs were printed and 
 
 Example:
 Your log is writen in `Foo.java`, at line 145:
+    
+    [145] log.i("your message here");
+
+output: 
 
     Foo:145 : your message here
 
