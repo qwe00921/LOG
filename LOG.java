@@ -1,4 +1,4 @@
-package com.tuanchauict.log; //<-- change this if you want to change package
+package com.tuanchauict.log; //<-- change it if you want
 
 import android.util.Log;
 
@@ -11,22 +11,51 @@ import java.util.List;
 public class LOG {
     public static final boolean DEBUG = true;
 
-    public boolean debug = DEBUG;
+    private boolean debug = DEBUG;
+    private boolean fullname;
 
 
     public LOG(){
-        debug = DEBUG;
+        this(DEBUG, false);
     }
 
     public LOG(boolean debug){
-        this.debug = debug;
+        this(debug, false);
     }
 
-    private static String getStacktrace(){
+    public LOG(boolean debug, boolean fullname){
+        this.debug = debug;
+        this.fullname = fullname;
+    }
+
+    public void on(){
+        this.debug = true;
+    }
+
+    public void off(){
+        this.debug = false;
+    }
+
+    private String getStacktrace(){
         StackTraceElement[] es = Thread.currentThread().getStackTrace();
         StackTraceElement caller = es[4];
+        String classname = caller.getClassName();
+        if(!fullname){
+            int index = classname.lastIndexOf(".") + 1;
+            classname = classname.substring(index);
 
-        return caller.getClassName() + ":"+ caller.getLineNumber();
+        }
+        return classname + ":"+ caller.getLineNumber();
+    }
+
+    public void here(){
+        if(debug){
+            Log.i(getStacktrace(), "here");
+        }
+    }
+
+    public void wtf(){
+        Log.w(getStacktrace(), "WHAT THE FUCK!!!!!!!!!!!");
     }
 
     public void e(String str){
