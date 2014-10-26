@@ -10,7 +10,7 @@ Nothing new, but you can save your time finding where the logs were printed and 
 Example:
 Your log is writen in `Foo.java`, at line 145:
 
-  Foo:145 : your message here
+    Foo:145 : your message here
 
 
 
@@ -18,11 +18,11 @@ Your log is writen in `Foo.java`, at line 145:
 
 Download and put LOG.java to your application
 
-  LOG log = new LOG();
-  log.i("your message or your array or your list here");
-  log.e("something like above, but you can throw an exception", exception);
-  log.wtf(); //just WHAT THE FUCK!!!!!!!!!! <-- I know what your feeling LOL
-  log.here(); //just here <-- I know something, you just want this 
+    LOG log = new LOG();
+    log.i("your message or your array or your list here");
+    log.e("something like above, but you can throw an exception", exception);
+    log.wtf(); //just WHAT THE FUCK!!!!!!!!!! <-- I know your feeling LOL
+    log.here(); //just here <-- I know something, you just want this 
   
 ##License:
 
