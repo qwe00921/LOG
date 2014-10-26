@@ -21,8 +21,8 @@ Download and put LOG.java to your application
     LOG log = new LOG();
     log.i("your message or your array or your list here");
     log.e("something like above, but you can throw an exception", exception);
-    log.wtf(); //just WHAT THE FUCK!!!!!!!!!! <-- I know your feeling LOL
-    log.here(); //just here <-- I know something, you just want this 
+    log.wtf(); //just "WHAT THE FUCK!!!!!!!!!!" <-- I know your feeling LOL
+    log.here(); //just "here" <-- I know sometime, you just want this 
   
 ##License:
 
