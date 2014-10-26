@@ -28,7 +28,7 @@ Download and put LOG.java to your application
     log.wtf(); //just "WHAT THE FUCK!!!!!!!!!!" <-- I know your feeling LOL
     log.here(); //just "here" <-- I know sometime, you just want this 
   
-##License:
+##Licence:
 
 This library uses the [Apache License, version 2.0](http://www.apache.org/licenses/LICENSE-2.0.html). Copyright: [tuanchauict](https://github.com/tuanchauict)
 
