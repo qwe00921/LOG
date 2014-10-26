@@ -11,7 +11,7 @@ import java.util.List;
 public class LOG {
     public static final boolean DEBUG = true;
 
-    private boolean debug = DEBUG;
+    private boolean debug;
     private boolean fullname;
 
 
