@@ -26,6 +26,6 @@ Download and put LOG.java to your application
   
 ##License:
 
-This library uses the Apache License, version 2.0. Copyright: `tuanchauict`
+This library uses the [Apache License, version 2.0](http://www.apache.org/licenses/LICENSE-2.0.html). Copyright: `tuanchauict`
 
   
