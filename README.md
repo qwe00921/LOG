@@ -8,7 +8,8 @@ Android Log wrapper. Make your lovely cat simpler
 Nothing new, but you can save your time finding where the logs were printed and put `tag` into `Log.blah(tag, msg)`
 
 Example:
-Your log is writen in `Foo.java`, at line 145:
+
+Your log is written in `Foo.java`, at line 145:
     
     [145] log.i("your message here");
 
