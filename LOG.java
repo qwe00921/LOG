@@ -9,7 +9,7 @@ import java.util.List;
  * Created by tuanchauict on 8/5/14.
  */
 public class LOG {
-    public static final boolean DEBUG = true;
+    public static boolean DEBUG = true;
 
     private boolean debug = DEBUG;
     private boolean fullname;
