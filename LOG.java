@@ -8,6 +8,7 @@ import java.util.List;
 /**
  * Created by tuanchauict on 8/5/14.
  */
+ @Deprecated
 public class LOG {
     public static boolean DEBUG = true;
 
