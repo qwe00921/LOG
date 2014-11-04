@@ -27,9 +27,9 @@ output:
 
 ####Tracking runtime?
 
-    Log.startTrack("Long tag"); //[START] Tracking runtime for: [Long tag]
+    Log.startTrack("Long task"); //[START] Tracking runtime for: [Long task]
     ...
-    Log.printTrack("Long tag"); //[INFO] [Long task] run in 1503ms (1s503ms). Different from previous checking: 100ms (100ms)
+    Log.printTrack("Long task"); //[INFO] [Long task] run in 1503ms (1s503ms). Different from previous checking: 100ms (100ms)
     ...
     Log.stopTrack("Long task"); //[STOP] [Long task] run in 2008ms (2s8ms). Different from previous checking: 0ms (0ms)
     Log.printTrack("Long task");//[ERROR] Tracking [Long task] NOT FOUND!
