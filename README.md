@@ -1,11 +1,11 @@
 LOG (0.1.2)
 ===
 
-Android Log wrapper. Make your lovely cat simpler. You can throw out android.util.Log with mine or yours (Change the package name if you want)
+Android Log wrapper. Make your lovely cat simpler. You can throw out `android.util.Log` with mine or yours (Change the `package name` if you want)
 
 ##Change logs:
 Version 0.1.2: 
-- Add version for LOG. From version 0.1.2, I have turned to Log.java instead of LOG.java. **LOG.java is Deprecated**
+- Add version for LOG. From version 0.1.2, I have turned to Log.java instead of `LOG.java`. **`LOG.java` is Deprecated**
 - Change all functions to `static`. Now you don't need to create object for logging.
 - Add tracking runtime. See [example](https://github.com/tuanchauict/LOG/blob/master/README.md#tracking-runtime)
 
