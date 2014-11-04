@@ -7,7 +7,7 @@ Android Log wrapper. Make your lovely cat simpler. You can throw out android.uti
 Version 0.1.2: 
 - Add version for LOG. From version 0.1.2, I have turned to Log.java instead of LOG.java. **LOG.java is Deprecated**
 - Change all functions to `static`. Now you don't need to create object for logging.
-- Add tracking runtime. See example
+- Add tracking runtime. See [example](https://github.com/tuanchauict/LOG/blob/master/README.md#tracking-runtime)
 
 ##What new?
 
@@ -15,7 +15,7 @@ Version 0.1.2:
 
 [NEW] Tracking running time for your `tag`
 
-####Example:
+###Example:
 
 Your log is written in `Foo.java`, at line 145:
     
