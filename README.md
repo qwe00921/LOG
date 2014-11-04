@@ -27,7 +27,7 @@ output:
 
 ####Tracking runtime?
 
-    Log.startTrack("Long tag"); //[START] Tracking runtime for: Long tag
+    Log.startTrack("Long tag"); //[START] Tracking runtime for: [Long tag]
     ...
     Log.printTrack("Long tag"); //[INFO] [Long task] run in 1503ms (1s503ms). Different from previous checking: 100ms (100ms)
     ...
