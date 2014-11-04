@@ -11,6 +11,7 @@ Version 0.1.2:
 - Add `tag` parameter to keep your old Log debug safely
 ##What new?
 
+##Features
 ~~Nothing new, but~~ You can save your time finding where the logs were printed and put `tag` into `Log.blah(tag, msg)`
 
 [NEW] Tracking running time for your `tag`
