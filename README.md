@@ -37,9 +37,10 @@ output:
     
 ##Usage
 
-Download and put LOG.java to your Android project
+Download and put Log.java to your Android project
 
-    ~LOG log = new LOG();~
+    import <package>.Log
+
     Log.i("your message or your array or your list here");
     Log.e("something like above, but you can throw an exception", exception);
     Log.wtf(); //just "WHAT THE FUCK!!!!!!!!!!" <-- I know your feeling LOL
