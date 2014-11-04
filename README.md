@@ -8,7 +8,7 @@ Version 0.1.2:
 - Add version for LOG. From version 0.1.2, I have turned to Log.java instead of `LOG.java`. **`LOG.java` is Deprecated**
 - Change all functions to `static`. Now you don't need to create object for logging.
 - Add tracking runtime. See [example](https://github.com/tuanchauict/LOG/blob/master/README.md#tracking-runtime)
-
+- Add `tag` parameter to keep your old Log debug safely
 ##What new?
 
 ~~Nothing new, but~~ You can save your time finding where the logs were printed and put `tag` into `Log.blah(tag, msg)`
