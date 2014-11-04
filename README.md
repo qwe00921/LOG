@@ -45,7 +45,7 @@ Download and put Log.java to your Android project
     Log.e("something like above, but you can throw an exception", exception);
     Log.wtf(); //just "WHAT THE FUCK!!!!!!!!!!" <-- I know your feeling LOL
     Log.here(); //just "here" <-- I know sometime, you just want this 
-    Log.on(); //for starting print log
+    Log.on(); //for start print log
     Log.off(); //for stop print log
     
     //Tracking runtime:
