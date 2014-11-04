@@ -16,8 +16,8 @@ public class Log {
     private static boolean fullname;
 
     static class TrackingRuntime{
-        private static Map<String, TrackingRuntime> map = new HashMap<>();
-        private static List<TrackingRuntime> waitingList = new ArrayList<>(5);
+        private static Map<String, TrackingRuntime> map = new HashMap<String, TrackingRuntime>();
+        private static List<TrackingRuntime> waitingList = new ArrayList<TrackingRuntime>(5);
         static TrackingRuntime factory(){
             TrackingRuntime tr;
             if(waitingList.isEmpty()){
