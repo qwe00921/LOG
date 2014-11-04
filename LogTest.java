@@ -1,6 +1,6 @@
 package com.tuanchauict.log;
 
-import com.tuanchauict.log.Log;
+import com.opla.manga.utils.Log;
 
 import junit.framework.TestCase;
 
@@ -33,8 +33,15 @@ public class LogTest extends TestCase {
     }
 
     public void testLog(){
+        Log.wtf();
+        Log.here();
         Log.i("Blah blah");
+        Log.i("Tag", "Blah blah");
+        Log.i((String)null);
+        Log.i("Blah blah", new Throwable());
         Log.i(new String[]{"Blah 0", "Blah 1"});
+        Log.i(new String[]{"Blah 0", "Blah 1"}, false);
         Log.i(Arrays.asList(new String[]{"Blag 0", "Blah 1"}));
+        Log.i(Arrays.asList(new String[]{"Blag 0", "Blah 1"}), false);
     }
 }
