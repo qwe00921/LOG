@@ -1,5 +1,6 @@
 package com.tuanchauict.log;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
@@ -14,7 +15,60 @@ public class Log {
 
     private static boolean fullname;
 
-    private static Map<String, Long> trackingRuntimeMap = new HashMap<>();
+    static class TrackingRuntime{
+        private static Map<String, TrackingRuntime> map = new HashMap<>();
+        private static List<TrackingRuntime> waitingList = new ArrayList<>(5);
+        static TrackingRuntime factory(){
+            TrackingRuntime tr;
+            if(waitingList.isEmpty()){
+                tr = new TrackingRuntime();
+            }
+            else{
+                tr = waitingList.remove(0);
+            }
+
+            tr.init();
+            return tr;
+        }
+
+        static void recycle(TrackingRuntime trackingRuntime){
+            waitingList.add(trackingRuntime);
+        }
+
+        static void track(String tag){
+            map.put(tag, factory());
+        }
+
+        static TrackingRuntime get(String tag){
+            return map.get(tag);
+        }
+
+        static void remove(String tag){
+            TrackingRuntime tr = map.remove(tag);
+            if(tr != null){
+                recycle(tr);
+            }
+        }
+
+        private long t0;
+        private long t1;
+
+        void init(){
+            t0 = t1 = System.currentTimeMillis();
+        }
+
+        void updateT1(){
+            t1 = System.currentTimeMillis();
+        }
+
+        public long t0(){
+            return t0;
+        }
+
+        public long t1(){
+            return t1;
+        }
+    }
 
     public static void setFullname(boolean fullname){
     	Log.fullname = fullname;
@@ -29,8 +83,8 @@ public class Log {
     }
 
     public static void startTrack(String tag){
-        trackingRuntimeMap.put(tag, System.currentTimeMillis());
-        android.util.Log.i(getStacktrace(), "[START] Tracking runtime for: " + tag);
+        TrackingRuntime.track(tag);
+        android.util.Log.i(getStacktrace(), "[START] Tracking runtime for: [" + tag + "]");
     }
 
     /**
@@ -38,13 +92,16 @@ public class Log {
      * @param tag
      */
     public static void printTrack(String tag){
-        if(trackingRuntimeMap.containsKey(tag)){
-            long dt = System.currentTimeMillis() - trackingRuntimeMap.get(tag);
-            android.util.Log.i(getStacktrace(),"[INFO] " + tag + " run in " + dt + "(" + time2String(dt) + ")");
-            trackingRuntimeMap.remove(tag);
+        TrackingRuntime tr = TrackingRuntime.get(tag);
+        if(tr != null){
+            long dt = System.currentTimeMillis() - tr.t0();
+            long dt1 = System.currentTimeMillis() - tr.t1();
+            android.util.Log.i(getStacktrace(),
+                    "[INFO] [" + tag + "] run in " + dt + "ms (" + time2String(dt) + "). Different from previous checking: " + dt1 + "ms (" + time2String(dt1) + ")");
+            tr.updateT1();
         }
         else{
-            android.util.Log.e(getStacktrace(), "[ERROR] Tracking tag NOT FOUND!" + tag);
+            android.util.Log.e(getStacktrace(), "[ERROR] Tracking [" + tag + "] NOT FOUND!");
         }
     }
 
@@ -53,13 +110,19 @@ public class Log {
      * @param tag
      */
     public static void stopTrack(String tag){
-        if(trackingRuntimeMap.containsKey(tag)){
-            long dt = System.currentTimeMillis() - trackingRuntimeMap.get(tag);
-            android.util.Log.i(getStacktrace(),"[STOP] " + tag + " run in " + dt + "(" + time2String(dt) + ")");
-            trackingRuntimeMap.remove(tag);
+        TrackingRuntime tr = TrackingRuntime.get(tag);
+        if(tr != null){
+            long dt = System.currentTimeMillis() - tr.t0;
+            long dt1 = System.currentTimeMillis() - tr.t1;
+
+            android.util.Log.i(getStacktrace(), "[STOP] [" + tag + "] run in " + dt + "ms ("
+                    + time2String(dt) + "). Different from previous checking: " + dt1 + "ms ("
+                    + time2String(dt1) + ")");
+            TrackingRuntime.remove(tag);
+
         }
         else{
-            android.util.Log.e(getStacktrace(), "[ERROR] Tracking tag NOT FOUND!" + tag);
+            android.util.Log.e(getStacktrace(), "[ERROR] Tracking [" + tag + "] NOT FOUND!");
         }
     }
 
